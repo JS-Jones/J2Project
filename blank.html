@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizable Button</title>
+    <style>
+        #resize-button {
+            width: 100px;
+            height: 50px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <button id="resize-button" onclick="resizeButton()">Click me</button>
+
+    <script>
+        function resizeButton() {
+            var button = document.getElementById('resize-button');
+            var currentWidth = button.offsetWidth;
+            var currentHeight = button.offsetHeight;
+            
+            button.style.width = (currentWidth * 2) + 'px';
+            button.style.height = (currentHeight * 2) + 'px';
+        }
+    </script>
+</body>
+</html>

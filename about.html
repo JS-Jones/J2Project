@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="sideStyles.css">
+</head>
+<body>
+
+    <div id="side-panel" class="side-panel">
+        <h1>Joshua Jones</h1>
+        <ul class="toc-list">
+            <li><button class="toc-button" onclick="navigateTo2('about')">About Me</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('resume')">Resume</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Goals</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Projects</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Main</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Personal</button></li>
+            
+        </ul>
+    </div>
+
+    <main class="fade-in">
+        <p>Welcome to the About Me page. Here you can learn more about Joshua Jones, his background, interests, and professional journey.</p>
+        <p>Joshua Jones has a dual background in business and cognitive sciences. He hopes to help communities while exploring topics including neuroprosthetics and MedTech. Joshua has completed projects at J&J and Motion Labs and prefers a modern/techy but simplistic style centered around his goal of MedTech in neuroscience.</p>
+    </main>
+    <footer class="fade-in">
+        <!-- <a href="index.html">Back to Home</a> -->
+    </footer>
+
+    <script>
+        function navigateTo2(page) {
+            // const centerText = document.querySelector('.center-text');
+            // const logoText = document.querySelector('.logo-text');
+            // const sidePanel = document.querySelector('.side-panel');
+
+            // centerText.classList.add('fade-out');
+            // logoText.classList.add('fade-out');
+            // sidePanel.classList.add('fade-out')
+
+            setTimeout(() => {
+                window.location.href = `${page}.html`; // Navigate to the specified page
+            }, 500); // Delay to allow expansion effect
+        }
+        </script>
+
+
+</body>
+</html>

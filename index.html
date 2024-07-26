@@ -3,78 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Jones</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 80%;
-            max-width: 1000px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .left, .right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .left img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-        .left, .right, .center {
-            flex: 1;
-            text-align: center;
-        }
-        .center h1 {
-            font-size: 72px;
-            margin: 0;
-        }
-        .button {
-            background-color: #00aaff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            margin: 10px 0;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .button:hover {
-            background-color: #0088cc;
-        }
-    </style>
+    <title>Center Text with Sidebar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="left">
-            <img src="/mnt/data/IMG_8297.jpg" alt="Joshua Jones">
-            <div>Text box</div>
+
+    <!-- Side panel 
+    <div id="side-panel" class="side-panel">
+        <div class="profile-picture">
+            <img src="blur_edges (1).jpg" alt="Profile Picture"> 
         </div>
-        <div class="center">
-            <h1>J<sup>2</sup>P</h1>
-            <div>Text box</div>
-        </div>
-        <div class="right">
-            <button class="button">Button</button>
-            <button class="button">Button</button>
+        <h2>Joshua Jones</h2>
+        <div class="bio">
+            <p>Write your biography here...</p>
         </div>
     </div>
+    -->
+    <div id="side-panel" class="side-panel">
+        <h1>Joshua Jones</h1>
+        <ul class="toc-list">
+            <li><button class="toc-button" onclick="navigateTo2('about')">About Me</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('resume')">Resume</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Goals</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Projects</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Main</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Personal</button></li>
+        </ul>
+    </div>
+    
+    <div class="center-text">
+        <button class="button" id="buttonJ" onclick="toggleSelection('J')">J</button>
+        <div class="vertical-text">
+            <button class="button small-text" id="button2" onclick="toggleSelection('2')">2</button>
+            <button class="button small-text" id="buttonP" onclick="toggleSelection('P')">P</button>
+        </div>
+        <div class="circular-buttons" id="circular-buttons">
+            <button class="circular-button" id="circularButton1" onclick="expandButton('about')"></button>
+            <button class="circular-button" id="circularButton2" onclick="expandButton('resume')"></button>
+            <button class="circular-button" id="circularButton3" onclick="expandButton('blank')"></button>
+        </div>
+    </div>
+
+    <div class="logo-text">
+        <a href="https://www.linkedin.com/in/joshua-s-jones" target="_blank" class="logo">
+            <img src="linkedinlogo.png" alt="LinkedIn Logo"> <!-- Replace with your logo file -->
+        </a>
+        <a href="https://github.com/JS-Jones" target="_blank" class="logo">
+            <img src="githublogo.png" alt="GitHub Logo"> <!-- Replace with your logo file -->
+        </a>
+        <a href="mailto:joshuasamj@gmail.com" class="logo">
+            <img src="gmaillogo.png" alt="Gmail Logo"> <!-- Replace with your logo file -->
+        </a>
+
+        
+
+    </div>
+    
+    
+    <script>
+        function navigateTo2(page) {
+            const centerText = document.querySelector('.center-text');
+            const logoText = document.querySelector('.logo-text');
+
+            centerText.classList.add('fade-out');
+            logoText.classList.add('fade-out');
+
+            setTimeout(() => {
+                window.location.href = `${page}.html`; // Navigate to the specified page
+            }, 500); // Delay to allow expansion effect
+            
+        }
+
+
+        function navigateTo(page) {
+            const centerText = document.querySelector('.center-text');
+            const logoText = document.querySelector('.logo-text');
+            const sidePanel = document.querySelector('.side-panel');
+            const header = document.querySelector('header');
+
+            centerText.classList.add('fade-out');
+            logoText.classList.add('fade-out');
+            sidePanel.classList.add('fade-out');
+            header.classList.add('fade-out');
+            
+
+            setTimeout(() => {
+                window.location.href = `${page}.html`; // Navigate to the specified page
+            }, 500); // Delay to allow expansion effect
+            
+        }
+
+        function toggleSelection(buttonId) {
+            const buttonJ = document.getElementById('buttonJ');
+            const button2 = document.getElementById('button2');
+            const buttonP = document.getElementById('buttonP');
+            const sidePanel = document.getElementById('side-panel');
+            const circularButtons = document.getElementById('circular-buttons');
+            const circularButtonElements = document.querySelectorAll('.circular-button');
+
+            // Toggle selection for 'J' and 'P'
+            if (buttonId === 'J' || buttonId === 'P') {
+                const button = document.getElementById(`button${buttonId}`);
+                button.classList.toggle('selected');
+
+                // Show side panel if either 'J' or 'P' is selected
+                if (buttonJ.classList.contains('selected')) {
+                    sidePanel.classList.add('show');
+                } else {
+                    sidePanel.classList.remove('show');
+                }
+
+                // Show or hide circular buttons based on 'P' selection
+                if (buttonId === 'P' && buttonP.classList.contains('selected')) {
+                    circularButtons.style.display = 'flex';
+                    setTimeout(() => {
+                        circularButtonElements.forEach((btn, index) => {
+                            setTimeout(() => {
+                                btn.classList.add('show');
+                            }, index * 100); // Stagger the appearance
+                        });
+                    }, 100);
+                } else {
+                    if (buttonId === 'P'){
+                        circularButtonElements.forEach((btn, index) => {
+                        setTimeout(() => {
+                            btn.classList.remove('show');
+                        }, index * 100); // Stagger the disappearance
+                    });
+                    setTimeout(() => {
+                        circularButtons.style.display = 'none';
+                    }, 500); // Allow time for the animation to complete before hiding
+                    }
+                    
+                }
+            }
+            
+            // Toggle selection for 'P' and trigger confetti
+            if (buttonId === '2') {
+                const button = document.getElementById('button2');
+                button.classList.toggle('selected');
+                if (button.classList.contains('selected')) {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.7 }
+                    });
+                }
+            }
+        }
+
+    function expandButton(targetPage) {
+        const circularButtons = document.getElementById('circular-buttons');
+        const centerText = document.querySelector('.center-text');
+        const logoText = document.querySelector('.logo-text');
+        const circularButton = event.target;
+        
+        // Create or select the expanded button element
+        let expandedButton = document.querySelector('.expanded');
+        if (!expandedButton) {
+            expandedButton = document.createElement('button');
+            expandedButton.classList.add('expanded');
+            document.body.appendChild(expandedButton);
+        }
+
+        // Add content to the expanded button
+        expandedButton.innerHTML = `<div class="expanded-content">${targetPage.toUpperCase()}</div>`;
+
+        // Trigger fade-out for other elements
+        centerText.classList.add('fade-out');
+        logoText.classList.add('fade-out');
+
+        // Show the expanded button
+        expandedButton.classList.add('show');
+
+        setTimeout(() => {
+            if (targetPage === 'about') {
+                window.location.href = 'about.html'; // Replace with the actual URL of the About Me page
+            } else if (targetPage === 'resume') {
+                window.location.href = 'resume.html'; // Replace with the actual URL of the Resume page
+            } else {
+                window.location.href = 'blank.html'; // Replace with the actual URL of the blank page
+            }
+        }, 3100); // Delay to allow expansion effect
+    }
+
+    function copyAndExpandButton(event) {
+        const button = event.target;
+        const rect = button.getBoundingClientRect();
+        const copy = button.cloneNode(true);
+        
+        copy.style.position = 'fixed';
+        copy.style.left = `${rect.left}px`;
+        copy.style.top = `${rect.top}px`;
+        copy.style.width = `${rect.width}px`;
+        copy.style.height = `${rect.height}px`;
+        copy.style.zIndex = 1000;
+        copy.style.pointerEvents = 'none'; // Prevent hover effects on the copy
+        copy.style.transition = 'all 5s ease-in-out'; // Add transition
+        document.body.appendChild(copy);
+
+        // Animate the copy to double its size
+        setTimeout(() => {
+            copy.style.transform = 'scale(20)'; // Double the size
+            copy.style.transition = 'all 2s ease-in-out';
+        }, 10); // Small delay to ensure the initial state is rendered before scaling
+
+        setTimeout(() => {
+            copy.classList.add('color-transition'); // Add class for color transition
+        }, 1250); // Small delay to ensure the initial state is rendered before scaling
+
+
+        // Optionally remove the copy after the transition
+        setTimeout(() => {
+            copy.remove(); // Remove the copy after transition completes
+        }, 4000); // Duration of the transition + some buffer time
+    }
+    
+    
+
+    document.querySelectorAll('.circular-button').forEach(button => {
+        button.addEventListener('click', copyAndExpandButton);
+    });
+
+    </script>
 </body>
 </html>

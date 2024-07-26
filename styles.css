@@ -1,0 +1,252 @@
+body {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fafae5;
+    overflow: hidden; /* Prevent scrollbars */
+}
+header {
+    position: absolute;
+    top: 2vh; /* Adjust as needed */
+    left: 5vh; /* Adjust as needed */
+    font-size: 4vh; /* Adjust size as needed */
+    font-weight: bold;
+    color: #000;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.center-text {
+    font-size: 20vw; /* Adjusted for scaling */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative; /* Add relative positioning */
+}
+.logo-text {
+    display: flex;
+    flex-direction: row; /* Align logos horizontally */
+    gap: 1vw; /* Space between logos */
+    margin-top: -1vw; /* Space above logos */
+}
+.button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /* Smooth transitions */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add text shadow */
+    color: #000000; /* Original text color */
+}
+.button:hover {
+    color: #FF6347; /* Change color on hover */
+}
+.button.selected {
+    color: #FFD700; /* Change color when selected */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Enhanced shadow when selected */
+}
+.vertical-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -2vw; /* Adjusted for closer distance */
+}
+.small-text {
+    font-size: 10vw; /* Adjusted for scaling */
+    line-height: 0.8;
+}
+/* Side panel styles */
+.side-panel {
+    position: fixed;
+    top: -2vh;
+    left: -40vw; /* Hide panel off-screen initially */
+    width: 17vw; /* Adjust width to be proportional to viewport width */
+    height: 100vw;
+    background-color: #fafae5;
+    transition: left 0.3s ease-in-out; /* Smooth transition */
+    padding: 1vw; /* Adjust padding to be relative */
+    
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+.side-panel.show {
+    left: 0; /* Show panel */
+}
+
+
+.toc-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+.toc-list li {
+    margin-bottom: 1vw; /* Space between list items */
+    border-bottom: 1px solid #ddd; /* Add a bottom border for the divider */
+
+}
+
+.toc-button {
+    width: 100%; /* Full width buttons */
+    padding:1vw; /* Padding for buttons */
+    font-size: 1.5vw; /* Adjust size as needed */
+    background-color: #fafae5; /* Button background color */
+    border: 1px solid #fafae5; /* Border color */
+    border-radius: 0.5vw; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.toc-button:hover {
+    background-color: #fed9c7; /* Button hover color */
+}
+.profile-picture {
+    width: 100%;
+    height: auto;
+    background-color: #fafae5;
+    border: none; /* Remove border */
+    margin-bottom: 2vw; /* Adjust margin to be relative */
+    border-radius: 10%; /* Make the picture circular */
+    overflow: hidden; /* Hide overflow to maintain circular shape */
+}
+.profile-picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5%; /* Make the image circular */
+}
+.bio {
+    border-top: 1px solid #ddd;
+    padding-top: 1vw; /* Adjust padding to be relative */
+    margin-top: 1vw; /* Adjust margin to be relative */
+    font-size: 1.5vw; /* Adjust font size to be relative */
+    height: calc(100vh - 140px); /* Adjust height */
+    overflow-y: auto;
+}
+
+.logo img {
+    width: 3vw; /* Adjust size as needed */
+    height: auto;
+    display: block; /* Ensure image only */
+}
+
+.logo {
+    display: inline-block;
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+}
+.circular-buttons {
+    /* position: absolute;
+    
+    display: none; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);  for Circular */
+
+    position: fixed; /* Fixed positioning */
+    bottom: 2vw; /* Adjust as needed to position above the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    display: none; /* Initially hidden */
+    flex-direction: row; /* Arrange in a row */
+    gap: 2vw; /* Space between buttons */
+}
+.circular-button {
+    /* width: 7.5vw; 
+    height: 7.5vw; 
+    background-color: #000;
+    border: none;
+    border-radius: 50%;
+    position: absolute; 
+    opacity: 0; 
+    transform: scale(0); 
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background-color 0.3s ease-in-out; for circular*/
+    width: 7.5vw; /* Adjust size as needed */
+    height: 7.5vw; /* Adjust size as needed */
+    background-color: #000;
+    border: none;
+    border-radius: 20%;
+    opacity: 0; /* Start invisible */
+    transform: scale(0); /* Start small */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+    
+.circular-button.show {
+    opacity: 1; /* Make visible */
+    transform: scale(1); /* Expand to normal size */
+}
+
+.circular-button:hover {
+    background-color: #FF6347; /* Change color on hover */
+}
+    
+
+/* Add a container for the fade-out effect */
+.fade-out-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.color-transition {
+    background-color: #fafae5; /* Background color to transition to */
+    /* Transition properties */
+    transition: background-color 10s ease-in-out; /* Duration should match the size scaling transition */
+}
+
+.expanded {
+    width: 100vw; /* Start with full viewport width */
+    height: 100vw; /* Maintain aspect ratio */
+    max-width: 100vh; /* Ensure the height is within viewport height */
+    max-height: 100vh; /* Ensure the height is within viewport height */
+    background-color: #000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Center and scale down */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw; /* Adjust font size as needed */
+    color: #fff;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.expanded.show {
+    transform: translate(-50%, -50%) scale(1); /* Center and scale up */
+    opacity: 0;
+}
+
+/* Fade out effect for other elements */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-out */
+}
+
+/* .fade-out.show {
+    opacity: 0;
+    transform: scale(1); Reset scale
+} */

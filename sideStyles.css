@@ -1,0 +1,98 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fafae5;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+header {
+    position: absolute;
+    top: 2vh; /* Adjust as needed */
+    left: 5vh; /* Adjust as needed */
+    font-size: 4vh; /* Adjust size as needed */
+    font-weight: bold;
+    color: #000;
+    animation-delay: 0s; /* No delay for header */
+}
+
+main, footer {
+    opacity: 0; /* Start with elements hidden */
+    animation: fadeIn .25s forwards; /* Apply the fade-in animation */
+}
+
+main {
+    position: absolute;
+    left: 18vw;
+    width: 82%;
+    animation-delay: 0.25s; /* Delay for main content */
+}
+
+footer {
+    animation-delay: .25s; /* Delay for footer */
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Side panel styles */
+.side-panel {
+    position: fixed;
+    top: -2vh;
+    left: 0; /* Hide panel off-screen initially */
+    width: 17vw; /* Adjust width to be proportional to viewport width */
+    height: 100vw;
+    background-color: #fafae5;
+    transition: left 0.3s ease-in-out; /* Smooth transition */
+    padding: 1vw; /* Adjust padding to be relative */
+    
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.toc-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+.toc-list li {
+    margin-bottom: 1vw; /* Space between list items */
+    border-bottom: 1px solid #ddd; /* Add a bottom border for the divider */
+
+}
+
+.toc-button {
+    width: 100%; /* Full width buttons */
+    padding:1vw; /* Padding for buttons */
+    font-size: 1.5vw; /* Adjust size as needed */
+    background-color: #fafae5; /* Button background color */
+    border: 1px solid #fafae5; /* Border color */
+    border-radius: 0.5vw; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.toc-button:hover {
+    background-color: #fed9c7; /* Button hover color */
+}
