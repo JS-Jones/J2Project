@@ -158,6 +158,8 @@ header {
     gap: 2vw; /* Space between buttons */
     overflow-x: scroll; /* Horizontal scrollbar */
     width: 75vw; /* Adjust the width as needed */
+    color: #ffffff; /* White text color */
+    font-size: 1vw; /* Adjust size as needed */
 
 
 }
