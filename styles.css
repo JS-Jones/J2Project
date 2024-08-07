@@ -156,7 +156,7 @@ header {
     display: none; /* Initially hidden */
     flex-direction: row; /* Arrange in a row */
     gap: 2vw; /* Space between buttons */
-    overflow-x: auto; /* Horizontal scrollbar */
+    overflow-x: scroll; /* Horizontal scrollbar */
     width: 75vw; /* Adjust the width as needed */
 
 
