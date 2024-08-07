@@ -25,10 +25,7 @@
         <ul class="toc-list">
             <li><button class="toc-button" onclick="navigateTo2('about')">About Me</button></li>
             <li><button class="toc-button" onclick="navigateTo2('resume')">Resume</button></li>
-            <li><button class="toc-button" onclick="navigateTo2('blank')">Goals</button></li>
-            <li><button class="toc-button" onclick="navigateTo2('blank')">Projects</button></li>
-            <li><button class="toc-button" onclick="navigateTo2('blank')">Main</button></li>
-            <li><button class="toc-button" onclick="navigateTo2('blank')">Personal</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('index')">Main Page</button></li>
         </ul>
     </div>
     
@@ -39,9 +36,33 @@
             <button class="button small-text" id="buttonP" onclick="toggleSelection('P')">P</button>
         </div>
         <div class="circular-buttons" id="circular-buttons">
-            <button class="circular-button" id="circularButton1" onclick="expandButton('about')"></button>
-            <button class="circular-button" id="circularButton2" onclick="expandButton('resume')"></button>
-            <button class="circular-button" id="circularButton3" onclick="expandButton('blank')"></button>
+            <!--<button class="circular-button" id="circularButton1" onclick="expandButton('vrrehab')"><b>VR-Rehab</b></button>
+            <button class="circular-button" id="circularButton2" onclick="expandButton('EEG')"><b>EEG Reports</b></button>
+            <button class="circular-button" id="circularButton2" onclick="expandButton('TIPS')"><b>AI TIPS model for ASL</b></button>
+            <button class="circular-button" id="circularButton2" onclick="expandButton('J&J')"><b>J&J Internship</b></button>
+            <button class="circular-button" id="circularButton2" onclick="expandButton('CUBIT')"><b>Early Life Stress findings in Depression</b></button>
+            <button class="circular-button" id="circularButton2" onclick="expandButton('GoodSoup')"><b></b></button>
+        -->
+            <button class="circular-button" id="circularButton1" onclick="expandButton('VR-Rehab')"><b>VR-Rehab</b></button>
+            <button class="circular-button" id="circularButton2" onclick="expandButton('EEGAnalysis')"><b>EEG Reports</b></button>
+            <button class="circular-button" id="circularButton13" onclick="expandButton('LiveEEGVid')"><b>Live EEG Display</b></button> 
+            <button class="circular-button" id="circularButton3" onclick="expandButton('TIPS')"><b>AI TIPS Model for ASL</b></button>
+            <button class="circular-button" id="circularButton4" onclick="expandButton('J&J')"><b>J&J Internship Report</b></button>
+            <button class="circular-button" id="circularButton5" onclick="expandButton('CUBIT')"><b>Early Life Stress Findings in Depression</b></button>
+            <button class="circular-button" id="circularButton9" onclick="expandButton('VentureRush')"><b>Venture Rush Roblox Game</b></button>
+            <button class="circular-button" id="circularButton12" onclick="expandButton('3DModels')"><b>Sample 3D Models</b></button>
+            <button class="circular-button" id="circularButton6" onclick="expandButton('GoodSoup')"><b>GoodSoup: Dining Food Tracker</b></button>
+            <button class="circular-button" id="circularButton7" onclick="expandButton('URHungry')"><b>URHungry: Collective Food Pantry</b></button>
+            <button class="circular-button" id="circularButton8" onclick="expandButton('SharkTank')"><b>SharkTank Deals Data Analysis</b></button>
+            <button class="circular-button" id="circularButton10" onclick="expandButton('StockAnalysis')"><b>Personal Excel Stock Tracker</b></button>
+            <button class="circular-button" id="circularButton11" onclick="expandButton('EstateDataAnalaysis')"><b>Real Estate KPI Analysis</b></button>
+            <button class="circular-button" id="circularButton14" onclick="expandButton('J2P')"><b>This Website!</b></button>
+
+
+
+            
+            
+            <!--<button class="circular-button" id="circularButton3" onclick="expandButton('blank')"></button>-->
         </div>
     </div>
 
@@ -154,71 +175,111 @@
         }
 
     function expandButton(targetPage) {
-        const circularButtons = document.getElementById('circular-buttons');
-        const centerText = document.querySelector('.center-text');
-        const logoText = document.querySelector('.logo-text');
-        const circularButton = event.target;
+        // const circularButtons = document.getElementById('circular-buttons');
+        // const centerText = document.querySelector('.center-text');
+        // const logoText = document.querySelector('.logo-text');
+        // const circularButton = event.target;
+        
         
         // Create or select the expanded button element
-        let expandedButton = document.querySelector('.expanded');
-        if (!expandedButton) {
-            expandedButton = document.createElement('button');
-            expandedButton.classList.add('expanded');
-            document.body.appendChild(expandedButton);
-        }
+        // let expandedButton = document.querySelector('.expanded');
+        // if (!expandedButton) {
+        //     expandedButton = document.createElement('button');
+        //     expandedButton.classList.add('expanded');
+        //     document.body.appendChild(expandedButton);
+        // }
 
-        // Add content to the expanded button
-        expandedButton.innerHTML = `<div class="expanded-content">${targetPage.toUpperCase()}</div>`;
+        // // Add content to the expanded button
+        // expandedButton.innerHTML = `<div class="expanded-content">${targetPage.toUpperCase()}</div>`;
+
+        //circularButton.innerHTML = '';
 
         // Trigger fade-out for other elements
-        centerText.classList.add('fade-out');
-        logoText.classList.add('fade-out');
+        // centerText.classList.add('fade-out');
+        // logoText.classList.add('fade-out');
 
         // Show the expanded button
-        expandedButton.classList.add('show');
+        // expandedButton.classList.add('show');
 
-        setTimeout(() => {
-            if (targetPage === 'about') {
-                window.location.href = 'about.html'; // Replace with the actual URL of the About Me page
-            } else if (targetPage === 'resume') {
-                window.location.href = 'resume.html'; // Replace with the actual URL of the Resume page
-            } else {
-                window.location.href = 'blank.html'; // Replace with the actual URL of the blank page
-            }
-        }, 3100); // Delay to allow expansion effect
-    }
-
-    function copyAndExpandButton(event) {
-        const button = event.target;
-        const rect = button.getBoundingClientRect();
-        const copy = button.cloneNode(true);
+        // setTimeout(() => {
+        //     if (targetPage === 'vrrehab') {
+        //         window.location.href = 'vrrehab.html'; // Replace with the actual URL of the About Me page
+        //     } else if (targetPage === 'resume') {
+        //         window.location.href = 'resume.html'; // Replace with the actual URL of the Resume page
+        //     } else {
+        //         window.location.href = 'blank.html'; // Replace with the actual URL of the blank page
+        //     }
+        // }, 3100); // Delay to allow expansion effect
         
-        copy.style.position = 'fixed';
-        copy.style.left = `${rect.left}px`;
-        copy.style.top = `${rect.top}px`;
-        copy.style.width = `${rect.width}px`;
-        copy.style.height = `${rect.height}px`;
-        copy.style.zIndex = 1000;
-        copy.style.pointerEvents = 'none'; // Prevent hover effects on the copy
-        copy.style.transition = 'all 5s ease-in-out'; // Add transition
-        document.body.appendChild(copy);
+        if (targetPage === 'VR-Rehab') {
+            window.location.href = 'https://www.linkedin.com/posts/rhaddas_urochesterresearch-activity-7214553572863025152-w61s/?utm_source=share&utm_medium=member_desktop'; // LinkedIn page URL
+        } else if (targetPage === 'EEGAnalysis') {
+            window.location.href = 'Flight1EEGAnalysis.pdf'; // Replace with the actual URL of the PDF document
+        } else if (targetPage === 'LiveEEGVid') {
+            window.location.href = 'https://youtu.be/pLctNduYrzg'; // Replace with the actual URL of the image file
+        } else if (targetPage === 'TIPS') {
+            window.location.href = 'https://www.youtube.com/watch?v=FE8hY96s3IY'; 
+        } else if (targetPage === 'CUBIT') {
+            window.location.href = 'https://www.nature.com/articles/s41398-022-02153-z#citeas'; 
+        } else if (targetPage === 'URHungry') {
+            window.location.href = 'https://github.com/javac0f/URHungry'; 
+        } else if (targetPage === 'SharkTank') {
+            window.location.href = 'https://github.com/JS-Jones/Shark-Tank-Analysis'; 
+        } else if (targetPage === 'VentureRush') {
+            window.location.href = 'https://www.youtube.com/watch?v=w_US6n5kK4g'; 
+        } else if (targetPage === 'GoodSoup') {
+            window.location.href = 'Dining App Overview - Dandy Hacks 2022.pdf'; 
+        } else if (targetPage === 'StockAnalysis') {
+            window.location.href = 'excel.jpg'; 
+        } else if (targetPage === 'EstateDataAnalaysis') {
+            window.location.href = 'The OCG Analytics Training Manual .pdf'; 
+        } else if (targetPage === '3DModels') {
+            window.location.href = '3d.jpg'; 
+        } else if (targetPage === 'J2P') {
+            window.location.href = 'https://github.com/JS-Jones/J2Project'; 
+        } else if (targetPage === 'J&J') {
+            window.location.href = 'DePuyInternship.pdf'; 
+        } else {
+            window.location.href = 'blank.html'; // Replace with the actual URL of the blank page
+        }
 
-        // Animate the copy to double its size
-        setTimeout(() => {
-            copy.style.transform = 'scale(20)'; // Double the size
-            copy.style.transition = 'all 2s ease-in-out';
-        }, 10); // Small delay to ensure the initial state is rendered before scaling
-
-        setTimeout(() => {
-            copy.classList.add('color-transition'); // Add class for color transition
-        }, 1250); // Small delay to ensure the initial state is rendered before scaling
-
-
-        // Optionally remove the copy after the transition
-        setTimeout(() => {
-            copy.remove(); // Remove the copy after transition completes
-        }, 4000); // Duration of the transition + some buffer time
+        
+        
+        
+    
     }
+
+    // function copyAndExpandButton(event) {
+    //     const button = event.target;
+    //     const rect = button.getBoundingClientRect();
+    //     const copy = button.cloneNode(true);
+        
+    //     copy.style.position = 'fixed';
+    //     copy.style.left = `${rect.left}px`;
+    //     copy.style.top = `${rect.top}px`;
+    //     copy.style.width = `${rect.width}px`;
+    //     copy.style.height = `${rect.height}px`;
+    //     copy.style.zIndex = 1000;
+    //     copy.style.pointerEvents = 'none'; // Prevent hover effects on the copy
+    //     copy.style.transition = 'all 5s ease-in-out'; // Add transition
+    //     document.body.appendChild(copy);
+
+    //     // Animate the copy to double its size
+    //     setTimeout(() => {
+    //         copy.style.transform = 'scale(20)'; // Double the size
+    //         copy.style.transition = 'all 2s ease-in-out';
+    //     }, 10); // Small delay to ensure the initial state is rendered before scaling
+
+    //     setTimeout(() => {
+    //         copy.classList.add('color-transition'); // Add class for color transition
+    //     }, 1250); // Small delay to ensure the initial state is rendered before scaling
+
+
+    //     // Optionally remove the copy after the transition
+    //     setTimeout(() => {
+    //         copy.remove(); // Remove the copy after transition completes
+    //     }, 4000); // Duration of the transition + some buffer time
+    // }
     
     
 

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Highlight</title>
+    <link rel="stylesheet" href="sideStyles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFFFF6;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .media-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .image-item, .video-item {
+            flex: 1 1 calc(33.33% - 10px);
+            max-width: calc(33.33% - 10px);
+        }
+
+        .image-item img, .video-item video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .project-date {
+            font-style: italic;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .project-description {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div id="side-panel" class="side-panel">
+        <h1>Joshua Jones</h1>
+        <ul class="toc-list">
+            <li><button class="toc-button" onclick="navigateTo2('about')">About Me</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('resume')">Resume</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('projects')">Projects</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Main Page</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('blank')">Personal</button></li>
+        </ul>
+    </div>
+
+    <main class="fade-in container">
+        <div class="images-container">
+            <div class="image-item"><img src="vr-rehabimages/IMG_8343 2.jpg" alt="Project Image 1"></div>
+            <div class="image-item"><img src="vr-rehabimages/IMG_8342 3.JPG" alt="Project Image 1"></div>
+            
+            
+            
+            <!-- Add more images as needed -->
+        </div>
+        
+
+        <div class="project-title">Project Title</div>
+        <div class="project-date">Date Range: January 2023 - June 2023</div>
+
+        <div class="project-description">
+            <p>
+                This project involved developing an innovative solution to address [describe problem or challenge]. The key objectives were to [list objectives]. Our team implemented [describe main actions or technologies used], resulting in [mention key outcomes or achievements]. The project had a significant impact on [describe impact, e.g., user experience, business processes, community].
+            </p>
+            <p>
+                Key features of the project included [highlight key features or functionalities]. Additionally, we focused on [mention any particular focus areas, such as accessibility, scalability, etc.]. Throughout the project, we [describe any challenges faced and how they were overcome].
+            </p>
+        </div>
+    </main>
+
+    <footer class="fade-in">
+        <!-- Footer content if needed -->
+    </footer>
+
+    <script>
+        function navigateTo2(page) {
+            setTimeout(() => {
+                window.location.href = `${page}.html`;
+            }, 500);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".container").classList.add("fade-in");
+        });
+    </script>
+</body>
+</html>

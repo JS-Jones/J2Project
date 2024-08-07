@@ -71,6 +71,8 @@ footer {
     overflow-y: auto; /* Allow scrolling if content overflows */
 }
 
+
+
 .toc-list {
     list-style-type: none; /* Remove default list styling */
     padding: 0; /* Remove default padding */
@@ -95,4 +97,42 @@ footer {
 
 .toc-button:hover {
     background-color: #fed9c7; /* Button hover color */
+}
+
+.profile-picture {
+    width: 100%;
+    height: auto;
+    background-color: #fafae5;
+    border: none; /* Remove border */
+    margin-bottom: 2vw; /* Adjust margin to be relative */
+    border-radius: 10%; /* Make the picture circular */
+    overflow: hidden; /* Hide overflow to maintain circular shape */
+}
+.profile-picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5%; /* Make the image circular */
+}
+
+.bio {
+    border-top: 1px solid #ddd;
+    padding-top: 1vw; /* Adjust padding to be relative */
+    margin-top: 1vw; /* Adjust margin to be relative */
+    font-size: 1.5vw; /* Adjust font size to be relative */
+    height: calc(100vh - 140px); /* Adjust height */
+    overflow-y: auto;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-out */
 }

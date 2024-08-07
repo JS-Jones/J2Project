@@ -13,17 +13,41 @@
         <ul class="toc-list">
             <li><button class="toc-button" onclick="navigateTo2('about')">About Me</button></li>
             <li><button class="toc-button" onclick="navigateTo2('resume')">Resume</button></li>
-            <li><button class="toc-button" onclick="navigateTo2('blank')">Goals</button></li>
-            <li><button class="toc-button" onclick="navigateTo2('blank')">Projects</button></li>
-            <li><button class="toc-button" onclick="navigateTo2('blank')">Main</button></li>
-            <li><button class="toc-button" onclick="navigateTo2('blank')">Personal</button></li>
-            
+            <li><button class="toc-button" onclick="navigateTo2('index')">Main Page</button></li>            
         </ul>
     </div>
 
     <main class="fade-in">
-        <p>Welcome to the About Me page. Here you can learn more about Joshua Jones, his background, interests, and professional journey.</p>
-        <p>Joshua Jones has a dual background in business and cognitive sciences. He hopes to help communities while exploring topics including neuroprosthetics and MedTech. Joshua has completed projects at J&J and Motion Labs and prefers a modern/techy but simplistic style centered around his goal of MedTech in neuroscience.</p>
+        <div class="profile-picture">
+            <img src="blur_edges (1).jpg" alt="Profile Picture"> 
+        </div>
+        <h2>Joshua Jones</h2>
+        <div class="bio">
+            <p> In my academic and professional experience, I've built this duality between <b>Business</b> and 
+                <b>Cognitive Sciences</b>, both anchored in <b>Computer Science</b>. Aside from my focus in MedTech, 
+                I hope to expand my impact to a <b>Global Setting</b> and bring a new wave of <b>Innovation</b>.
+                <br><br>
+                <h4>In the next 10 years (hopefully by 2035) I believe that ...</h4>
+
+                <ul> • MedTech innovations will facilitate <b>real-time health monitoring</b> and <b>early detection</b> of diseases through wearable devices and biosensors.
+                    <br>&emsp;&emsp;&emsp;Ex) My Fitbit will not only record my 10k steps but also let me know if I need a doctor checkup
+                </ul>
+                <ul> • Advancements in <b>telemedicine and remote healthcare technologies</b> will make medical services more <b>accessible</b>, especially in underserved regions.</ul>
+                <ul> • <b>Neuroprosthetics or Brain Computer Interfaces (BCI)</b> will better integrate with the human nervous system, thereby improving the quality of life for individuals with disabilities. 
+                    This will be achieved through several key developments: 
+                    <br>&emsp;&emsp;&emsp;- <b>Enhanced Signal Processing:</b> Advances in machine learning will improve the interpretation of signals.
+                    <br>&emsp;&emsp;&emsp;- <b>New Biocompatible Materials</b> will reduce the risk of rejection and increase the longevity of implants.
+                    <br>&emsp;&emsp;&emsp;- <b>User-Centric Design:</b> creation of devices that are tailored to individual needs.
+                    <br>&emsp;&emsp;&emsp;- <b>Integration</b> with technology like virtual reality (VR) and augmented reality (AR) for rehabilitation processes.
+                    <br>&emsp;&emsp;&emsp;- <b>Shift</b> of BCI Technology from R&D to Commercial applications.
+                </ul>
+                
+                
+                <br>            
+            </p>
+        </div>
+        <!-- <p>Welcome to the About Me page. Here you can learn more about Joshua Jones, his background, interests, and professional journey.</p>
+        <p>Joshua Jones has a dual background in business and cognitive sciences. He hopes to help communities while exploring topics including neuroprosthetics and MedTech. Joshua has completed projects at J&J and Motion Labs and prefers a modern/techy but simplistic style centered around his goal of MedTech in neuroscience.</p> -->
     </main>
     <footer class="fade-in">
         <!-- <a href="index.html">Back to Home</a> -->
@@ -31,13 +55,9 @@
 
     <script>
         function navigateTo2(page) {
-            // const centerText = document.querySelector('.center-text');
-            // const logoText = document.querySelector('.logo-text');
-            // const sidePanel = document.querySelector('.side-panel');
+            const centerText = document.querySelector('.bio');
 
-            // centerText.classList.add('fade-out');
-            // logoText.classList.add('fade-out');
-            // sidePanel.classList.add('fade-out')
+            centerText.classList.add('fade-out');
 
             setTimeout(() => {
                 window.location.href = `${page}.html`; // Navigate to the specified page

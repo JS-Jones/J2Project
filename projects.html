@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="sideStyles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafae5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 77vw;
+            background-color: #fafae5;
+            border-color: #fafae5;
+            margin: auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .project-item {
+            flex: 1 1 calc(50% - 20px); /* Two columns */
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .project-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div id="side-panel" class="side-panel">
+        <h1>Joshua Jones</h1>
+        <ul class="toc-list">
+            <li><button class="toc-button" onclick="navigateTo2('about')">About Me</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('resume')">Resume</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('projects')">Projects</button></li>
+            <li><button class="toc-button" onclick="navigateTo2('index')">Main Page</button></li>
+        </ul>
+    </div>
+
+    <main class="fade-in container" id="projectContainer">
+        <div class="project-list">
+            <div class="project-item">
+                <div class="project-title">Project Title 1</div>
+                <div class="project-description">Brief description of Project 1...</div>
+            </div>
+            <div class="project-item">
+                <div class="project-title">Project Title 2</div>
+                <div class="project-description">Brief description of Project 2...</div>
+            </div>
+            <div class="project-item">
+                <div class="project-title">Project Title 3</div>
+                <div class="project-description">Brief description of Project 3...</div>
+            </div>
+            <div class="project-item">
+                <div class="project-title">Project Title 4</div>
+                <div class="project-description">Brief description of Project 4...</div>
+            </div>
+            <!-- Add more project items as needed -->
+        </div>
+    </main>
+
+    <footer class="fade-in">
+        <!-- Footer content if needed -->
+    </footer>
+
+    <script>
+        function navigateTo2(page) {
+            setTimeout(() => {
+                window.location.href = `${page}.html`;
+            }, 500);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".container").classList.add("fade-in");
+
+            const projectItems = document.querySelectorAll('.project-item');
+            projectItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('show');
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -149,32 +149,21 @@ header {
     padding: 0; /* Remove padding */
 }
 .circular-buttons {
-    /* position: absolute;
-    
-    display: none; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);  for Circular */
-
-    position: fixed; /* Fixed positioning */
-    bottom: 2vw; /* Adjust as needed to position above the bottom */
-    left: 50%; /* Center horizontally */
+    position: fixed;
+    bottom: 2vw;
+    left: 50%;
     transform: translateX(-50%);
     display: none; /* Initially hidden */
     flex-direction: row; /* Arrange in a row */
     gap: 2vw; /* Space between buttons */
+    overflow-x: auto; /* Horizontal scrollbar */
+    width: 75vw; /* Adjust the width as needed */
+
+
 }
+
 .circular-button {
-    /* width: 7.5vw; 
-    height: 7.5vw; 
-    background-color: #000;
-    border: none;
-    border-radius: 50%;
-    position: absolute; 
-    opacity: 0; 
-    transform: scale(0); 
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background-color 0.3s ease-in-out; for circular*/
-    width: 7.5vw; /* Adjust size as needed */
+    width: 10vw; /* Adjust size as needed */
     height: 7.5vw; /* Adjust size as needed */
     background-color: #000;
     border: none;
@@ -182,8 +171,14 @@ header {
     opacity: 0; /* Start invisible */
     transform: scale(0); /* Start small */
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    color: #ffffff; /* White text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw; /* Adjust size as needed */
 }
-    
+
+
 .circular-button.show {
     opacity: 1; /* Make visible */
     transform: scale(1); /* Expand to normal size */
